@@ -1,6 +1,9 @@
+// Unidade de Memória de Instrução
+// Esta unidade é responsável por ler e escrever instruções na memória.
+
 module instr_memory (
-    input  wire        clk,           // Ja que tem escrita em registrador, melhor colocar
-    input  wire        write,         // Sinal de controle sincrono
+    input  wire        clk,           // Já que tem escrita em registrador, melhor colocar
+    input  wire        write,         // Sinal de controle síncrono
     input  wire [31:0] addr,          // Endereço da instrução (PC)
     input  wire [31:0] inst_input,    // Instrução a ser gravada
     output wire [31:0] instruction    // Instrução lida

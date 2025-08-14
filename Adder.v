@@ -1,3 +1,5 @@
+// Módulo somador de 32 bits
+
 module Adder (
     input [31:0] in1, 
     input [31:0] in2,

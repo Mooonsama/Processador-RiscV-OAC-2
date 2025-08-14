@@ -1,3 +1,6 @@
+// Unidade de Memória de Dados
+// Este módulo é responsável por ler e escrever dados na memória.
+
 module data_memory (
     input wire        clk,
     input wire        mem_read,
@@ -11,8 +14,14 @@ module data_memory (
 
     // Memória byte-endereçável com 4KB
     reg [7:0] memory [0:4095];
-
-    wire [11:0] byte_addr = addr[13:2]; // endereçamento em bytes (ajustável ao tamanho da memória)
+    
+    integer i;
+    // Inicializa a memória
+    initial begin
+        for (i = 0; i < 4096; i = i + 1) begin
+            memory[i] = 8'h00;
+        end
+    end
 
     always @(posedge clk) begin
         if (mem_write) begin
@@ -36,9 +45,10 @@ module data_memory (
             end else begin
                 // Leitura de 4 bytes como palavra
                 read_data = { memory[addr + 3],
-                              memory[addr + 2],
-                              memory[addr + 1],
-                              memory[addr] };
+                            memory[addr + 2],
+                            memory[addr + 1],
+                            memory[addr] 
+                            };
             end
         end else begin
             read_data = 32'b0;

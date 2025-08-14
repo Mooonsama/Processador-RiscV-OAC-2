@@ -1,14 +1,17 @@
+// Unidade de Controle da ULA
+// Responsável por gerar os sinais de controle para a ULA
+
 module alu_control (
     input wire [1:0] alu_op,
     input wire [2:0] funct3,
-    input wire [6:0] funct7, // geralmente instr[30] para R-type
+    input wire [6:0] funct7,
     output reg [3:0] alu_ctrl
 );
 
     always @(*) begin
         case (alu_op)
-            2'b00: alu_ctrl = 4'b0010; // lw/sw/addi → soma
-            2'b01: alu_ctrl = 4'b0110; // beq → subtração
+            2'b00: alu_ctrl = 4'b0010; // lw/sw/addi 
+            2'b01: alu_ctrl = 4'b0110; // beq
             2'b10: begin // R-type ou I-type lógico
                 case (funct3)
                     3'b000: begin // add/addi or sub

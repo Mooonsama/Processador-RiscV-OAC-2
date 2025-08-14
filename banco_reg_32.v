@@ -1,4 +1,5 @@
 // Banco de registradores de 32 bits
+// Este módulo implementa um banco de registradores de 32 bits com 32 entradas. Ele checa 
 
 module registradores(
     input clk,
@@ -20,7 +21,7 @@ module registradores(
         end
     end
 
-    always @(posedge clk) begin
+    always @(negedge clk) begin
         if (reg_write) begin
             if (rd != 5'd0) // Verifica se não é o registrador zero
                 registers[rd] <= write_data; // Escreve dados no registrador especificado
@@ -32,3 +33,4 @@ module registradores(
         read_data2 = registers[rs2]; // Lê dados do registrador 2
     end
 endmodule
+

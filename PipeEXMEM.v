@@ -1,3 +1,6 @@
+// Unidade de Pipeline EX/MEM
+// Esta unidade é responsável por armazenar os dados da fase de execução até a fase de memória.
+
 module ex_mem (
     input wire clk,
     input wire reset,
@@ -11,7 +14,7 @@ module ex_mem (
 
     // Entrada
     input wire [31:0] alu_result_in,
-    input wire [31:0] rs2_data_in,      // para sw
+    input wire [31:0] rs2_data_in,
     input wire [4:0] rd_in,
 
     // Saídas
@@ -20,13 +23,14 @@ module ex_mem (
     output reg mem_read_out,
     output reg mem_write_out,
 
+    // Saídas Dados (Henrique acho que você vai conseguir mexer nisso)
     output reg [31:0] alu_result_out,
     output reg [31:0] rs2_data_out,
     output reg [4:0] rd_out
 );
 
     always @(posedge clk or posedge reset) begin
-        if (reset) begin
+        if (reset) begin    // Reseta os sinais de controle e dados
             reg_write_out    <= 0;
             mem_to_reg_out   <= 0;
             mem_read_out     <= 0;
@@ -35,7 +39,7 @@ module ex_mem (
             rs2_data_out     <= 0;
             rd_out           <= 0;
         end
-        else if (enable) begin
+        else if (enable) begin     // Armazenar dados na transição de clock
             reg_write_out    <= reg_write_in;
             mem_to_reg_out   <= mem_to_reg_in;
             mem_read_out     <= mem_read_in;

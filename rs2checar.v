@@ -1,6 +1,9 @@
+// Unidade de verificação de rs2
+
 `timescale 1ns / 1ps
 
 module checar2(
+    // Unidade de verificação de rs2
     input [6:0] op,
     output rs2
 );
@@ -15,6 +18,7 @@ module rs2checar(
 );
     wire w1,w2;
 
+    // Instancia o módulo checar2
     checar2 c2(op, w1);
     assign w2 = ~(rs2^rd);
     assign o = w1 & w2;

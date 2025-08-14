@@ -1,10 +1,13 @@
+// Gerador de Imediato
+// Este módulo gera o valor imediato a partir da instrução.
+
 module imm_gen (
-    input wire [31:0] instr,         // Instrução
-    output reg [31:0] imm_out        // Imediato expandido
+    input wire [31:0] instr,
+    output reg [31:0] imm_out
 );
 
-    wire [6:0] opcode = instr[6:0];  // opcode que determina o tipo
-
+    wire [6:0] opcode = instr[6:0];
+    
     always @(*) begin
         case (opcode)
             7'b0010011, // I-type: addi, ori, andi...

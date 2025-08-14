@@ -1,3 +1,6 @@
+// Unidade de Detecção de Hazards
+// Este módulo é responsável por detectar hazards no pipeline e gerar os sinais de controle apropriados.
+
 `include "rs1checar.v"
 `include "rs2checar.v"
 
@@ -13,8 +16,8 @@ module hazard_detection_unit(
 );
     wire w1, w2, w3, out;
 
-    rs2checar r2(ins[6:0], ins[24:20], rd, w2);
-    rs1checar r1(ins[6:0], ins[19:15], rd, w1);
+    rs2checar r2(ins[6:0], ins[24:20], rd, w2); // Checa se RS2 é igual a RD
+    rs1checar r1(ins[6:0], ins[19:15], rd, w1); // Checa se RS1 é igual a RD
 
     assign w3 = w1 | w2;
     assign out = w3 & memrd;

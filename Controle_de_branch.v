@@ -1,3 +1,7 @@
+// Módulo de controle de branch
+// Este módulo determina o próximo endereço do PC com base no controle de branch e na saída da ALU.
+
+
 module branch_control (
     input  wire        branch,      // Sinal da unidade de controle
     input  wire        zero,        // Flag de igualdade da ALU

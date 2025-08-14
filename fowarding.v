@@ -1,3 +1,6 @@
+// Unidade de Forwarding
+// Este módulo é responsável por encaminhar os dados corretos para os multiplexadores, evitando hazards.
+
 module ForwardingUnit (
     input EX_MemRegwrite,
     input [4:0] EX_MemWriteReg,
@@ -11,55 +14,35 @@ module ForwardingUnit (
     output reg [1:0] comparatorMux2Selector
     );
 
-    always@(EX_MemRegwrite or EX_MemWriteReg or Mem_WbRegwrite or Mem_WbWriteReg or ID_Ex_Rs or ID_Ex_Rt) begin
-        if(EX_MemRegwrite && EX_MemWriteReg)begin  //forwarding from ALU to ALU & from ALU to ID stage 
-            if (EX_MemWriteReg==ID_Ex_Rs) begin
-                
-                upperMux_sel<=2'b10;
-                comparatorMux1Selector<=2'b01;
-                end
-            else begin//no forwarding
-                upperMux_sel<=2'b00;
-                comparatorMux1Selector<=2'b00;
-            end
-
-            if(EX_MemWriteReg==ID_Ex_Rt)begin
-                lowerMux_sel<=2'b10;
-                comparatorMux2Selector<=2'b01;
-                end
-            else begin //no forwarding
-                lowerMux_sel<=2'b00;
-                comparatorMux2Selector<=2'b00;
-            end
+    always@(*) begin
+        // Inicia sem forwarding
+        upperMux_sel = 2'b00;
+        lowerMux_sel = 2'b00;
+        comparatorMux1Selector = 2'b00;
+        comparatorMux2Selector = 2'b00;
+        
+        // Forward do RS1 (upperMux_sel)
+        if (EX_MemRegwrite && (EX_MemWriteReg != 5'b00000) && (EX_MemWriteReg == ID_Ex_Rs)) begin
+            // Encaminha dados do estágio EX/MEM    
+            upperMux_sel = 2'b10;
+            comparatorMux1Selector = 2'b01;
         end
-
-        else if (Mem_WbRegwrite && Mem_WbWriteReg) begin   //forwarding from Memorystage to ALU & from Memorystage to ID stage
-            if ((Mem_WbWriteReg==ID_Ex_Rs) && (EX_MemWriteReg!=ID_Ex_Rs)) begin
-                upperMux_sel<=2'b01;
-                comparatorMux1Selector<=2'b10;
-            end
-            else begin //no forwarding
-                upperMux_sel<=2'b00;
-                comparatorMux1Selector<=2'b00;
-            end
-
-            if((Mem_WbWriteReg==ID_Ex_Rt) && (EX_MemWriteReg==ID_Ex_Rt)) begin
-                lowerMux_sel<=2'b01;
-                comparatorMux2Selector<=2'b10;
-            end
-
-            else begin //no forwarding
-                lowerMux_sel<=2'b00;
-                comparatorMux2Selector<=2'b00;
-            end
+        else if (Mem_WbRegwrite && (Mem_WbWriteReg != 5'b00000) && (Mem_WbWriteReg == ID_Ex_Rs)) begin
+            // Encaminha dados do estágio MEM/WB
+            upperMux_sel = 2'b01;
+            comparatorMux1Selector = 2'b10;
         end
-
-        else    //No forwarding
-            begin
-                upperMux_sel<=2'b00;
-                lowerMux_sel<=2'b00;
-                comparatorMux1Selector<=2'b00;
-                comparatorMux2Selector<=2'b00;
-            end
+        
+        // Forward do RS2 (lowerMux_sel)
+        if (EX_MemRegwrite && (EX_MemWriteReg != 5'b00000) && (EX_MemWriteReg == ID_Ex_Rt)) begin
+            // Encaminha dados do estágio EX/MEM
+            lowerMux_sel = 2'b10;
+            comparatorMux2Selector = 2'b01;
+        end
+        else if (Mem_WbRegwrite && (Mem_WbWriteReg != 5'b00000) && (Mem_WbWriteReg == ID_Ex_Rt)) begin
+            // Encaminha dados do estágio MEM/WB
+            lowerMux_sel = 2'b01;
+            comparatorMux2Selector = 2'b10;
+        end
     end
 endmodule

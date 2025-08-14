@@ -1,3 +1,6 @@
+// Unidade de Controle
+// Responsável por gerar os sinais de controle para a ULA
+
 module control_unit (
     input  wire [6:0] opcode,    // instr[6:0]
     output reg       reg_write,

@@ -14,6 +14,14 @@ module registradores(
 
     reg [31:0] registers [31:0]; // Array de 32 de registradores de 32 bits
 
+    generate
+        genvar idx;
+        for(idx = 0; idx < 32; idx = idx+1) begin: register
+            wire [31:0] tmp;
+            assign tmp = registers[idx];
+	    end
+    endgenerate
+
     integer i;
     initial begin
         for (i = 0; i < 32; i = i + 1) begin

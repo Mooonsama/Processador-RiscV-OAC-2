@@ -1,5 +1,5 @@
 $date
-	Wed Aug 13 23:11:57 2025
+	Fri Aug 15 17:15:59 2025
 $end
 $version
 	Icarus Verilog
@@ -296,15 +296,207 @@ $var wire 32 !# write_data [31:0] $end
 $var reg 32 "# read_data1 [31:0] $end
 $var reg 32 ## read_data2 [31:0] $end
 $var integer 32 $# i [31:0] $end
+$scope begin register[0] $end
+$var wire 32 %# tmp [31:0] $end
+$var parameter 2 &# idx $end
+$upscope $end
+$scope begin register[1] $end
+$var wire 32 '# tmp [31:0] $end
+$var parameter 2 (# idx $end
+$upscope $end
+$scope begin register[2] $end
+$var wire 32 )# tmp [31:0] $end
+$var parameter 3 *# idx $end
+$upscope $end
+$scope begin register[3] $end
+$var wire 32 +# tmp [31:0] $end
+$var parameter 3 ,# idx $end
+$upscope $end
+$scope begin register[4] $end
+$var wire 32 -# tmp [31:0] $end
+$var parameter 4 .# idx $end
+$upscope $end
+$scope begin register[5] $end
+$var wire 32 /# tmp [31:0] $end
+$var parameter 4 0# idx $end
+$upscope $end
+$scope begin register[6] $end
+$var wire 32 1# tmp [31:0] $end
+$var parameter 4 2# idx $end
+$upscope $end
+$scope begin register[7] $end
+$var wire 32 3# tmp [31:0] $end
+$var parameter 4 4# idx $end
+$upscope $end
+$scope begin register[8] $end
+$var wire 32 5# tmp [31:0] $end
+$var parameter 5 6# idx $end
+$upscope $end
+$scope begin register[9] $end
+$var wire 32 7# tmp [31:0] $end
+$var parameter 5 8# idx $end
+$upscope $end
+$scope begin register[10] $end
+$var wire 32 9# tmp [31:0] $end
+$var parameter 5 :# idx $end
+$upscope $end
+$scope begin register[11] $end
+$var wire 32 ;# tmp [31:0] $end
+$var parameter 5 <# idx $end
+$upscope $end
+$scope begin register[12] $end
+$var wire 32 =# tmp [31:0] $end
+$var parameter 5 ># idx $end
+$upscope $end
+$scope begin register[13] $end
+$var wire 32 ?# tmp [31:0] $end
+$var parameter 5 @# idx $end
+$upscope $end
+$scope begin register[14] $end
+$var wire 32 A# tmp [31:0] $end
+$var parameter 5 B# idx $end
+$upscope $end
+$scope begin register[15] $end
+$var wire 32 C# tmp [31:0] $end
+$var parameter 5 D# idx $end
+$upscope $end
+$scope begin register[16] $end
+$var wire 32 E# tmp [31:0] $end
+$var parameter 6 F# idx $end
+$upscope $end
+$scope begin register[17] $end
+$var wire 32 G# tmp [31:0] $end
+$var parameter 6 H# idx $end
+$upscope $end
+$scope begin register[18] $end
+$var wire 32 I# tmp [31:0] $end
+$var parameter 6 J# idx $end
+$upscope $end
+$scope begin register[19] $end
+$var wire 32 K# tmp [31:0] $end
+$var parameter 6 L# idx $end
+$upscope $end
+$scope begin register[20] $end
+$var wire 32 M# tmp [31:0] $end
+$var parameter 6 N# idx $end
+$upscope $end
+$scope begin register[21] $end
+$var wire 32 O# tmp [31:0] $end
+$var parameter 6 P# idx $end
+$upscope $end
+$scope begin register[22] $end
+$var wire 32 Q# tmp [31:0] $end
+$var parameter 6 R# idx $end
+$upscope $end
+$scope begin register[23] $end
+$var wire 32 S# tmp [31:0] $end
+$var parameter 6 T# idx $end
+$upscope $end
+$scope begin register[24] $end
+$var wire 32 U# tmp [31:0] $end
+$var parameter 6 V# idx $end
+$upscope $end
+$scope begin register[25] $end
+$var wire 32 W# tmp [31:0] $end
+$var parameter 6 X# idx $end
+$upscope $end
+$scope begin register[26] $end
+$var wire 32 Y# tmp [31:0] $end
+$var parameter 6 Z# idx $end
+$upscope $end
+$scope begin register[27] $end
+$var wire 32 [# tmp [31:0] $end
+$var parameter 6 \# idx $end
+$upscope $end
+$scope begin register[28] $end
+$var wire 32 ]# tmp [31:0] $end
+$var parameter 6 ^# idx $end
+$upscope $end
+$scope begin register[29] $end
+$var wire 32 _# tmp [31:0] $end
+$var parameter 6 `# idx $end
+$upscope $end
+$scope begin register[30] $end
+$var wire 32 a# tmp [31:0] $end
+$var parameter 6 b# idx $end
+$upscope $end
+$scope begin register[31] $end
+$var wire 32 c# tmp [31:0] $end
+$var parameter 6 d# idx $end
+$upscope $end
 $upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 $comment Show the parameter values. $end
 $dumpall
+b11111 d#
+b11110 b#
+b11101 `#
+b11100 ^#
+b11011 \#
+b11010 Z#
+b11001 X#
+b11000 V#
+b10111 T#
+b10110 R#
+b10101 P#
+b10100 N#
+b10011 L#
+b10010 J#
+b10001 H#
+b10000 F#
+b1111 D#
+b1110 B#
+b1101 @#
+b1100 >#
+b1011 <#
+b1010 :#
+b1001 8#
+b1000 6#
+b111 4#
+b110 2#
+b101 0#
+b100 .#
+b11 ,#
+b10 *#
+b1 (#
+b0 &#
 $end
 #0
 $dumpvars
+b0 c#
+b0 a#
+b0 _#
+b0 ]#
+b0 [#
+b0 Y#
+b0 W#
+b0 U#
+b0 S#
+b0 Q#
+b0 O#
+b0 M#
+b0 K#
+b0 I#
+b0 G#
+b0 E#
+b0 C#
+b0 A#
+b0 ?#
+b0 =#
+b0 ;#
+b0 9#
+b0 7#
+b0 5#
+b0 3#
+b0 1#
+b0 /#
+b0 -#
+b0 +#
+b0 )#
+b0 '#
+b0 %#
 b100000 $#
 b0 ##
 b0 "#
@@ -514,6 +706,8 @@ $end
 b1010000011 ;
 b1010000011 ^"
 b1010000011 c"
+b1111 /#
+b1011 -#
 0"
 #35000
 1P
@@ -1130,6 +1324,7 @@ b111 #
 b100 @
 b100 N"
 b100 ##
+b100 1#
 0!
 #105000
 06"
@@ -1258,6 +1453,7 @@ b11100 /
 b100 @
 b100 N"
 b100 ##
+b100 3#
 0!
 #115000
 05"
@@ -1382,6 +1578,7 @@ b0 f"
 b1001 #
 1!
 #120000
+b11110000 5#
 0!
 #125000
 b0 j
@@ -1461,6 +1658,7 @@ b100000 {"
 b1010 #
 1!
 #130000
+b1111 7#
 0!
 #135000
 x4"
